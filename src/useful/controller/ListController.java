@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import useful.model.Donut;
 import useful.view.PopupDisplay;
 
-public class ToolController
+public class ListController
 {
 	private List<Donut> donutList; //Declares the list
 	private PopupDisplay display;
 	
-	public ToolController()
+	public ListController()
 	{
 		donutList = new ArrayList<Donut>(); //Initializes the list
 		display = new PopupDisplay();
@@ -92,6 +92,24 @@ public class ToolController
 		donutList.add(TwistyDonut);
 		display.displayText("Twisty Donut was added to the menu. Now it is this big: " + donutList.size());
 		
+		donutList.add(4, removed);
 	}
 	
+	private void backwardsLoopDemo()
+	{
+		for (int index = donutList.size() - 1; index >= 0; index -=1)
+		{
+			display.displayText(donutList.get(index).getFlavor());
+		}
+	}
+	
+	public ArrayList<Donut> getDonutList()
+	{
+		return (ArrayList<Donut>) donutList;
+	}
+	
+	public PopupDisplay getDisplay()
+	{
+		return display;
+	}
 }

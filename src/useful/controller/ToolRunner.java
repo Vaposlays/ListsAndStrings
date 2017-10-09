@@ -4,7 +4,7 @@ public class ToolRunner
 {
 	public static void main(String [] args)
 	{
-		ToolController myApp = new ToolController ();
+		ListController myApp = new ListController ();
 		myApp.start();
 	}
 }
