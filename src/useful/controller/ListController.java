@@ -20,6 +20,12 @@ public class ListController
 	public void start()
 	{
 		Donut temp = new Donut(); //Creates the item "Donut"
+		ArrayList<String> tempList = new ArrayList<String>();
+		tempList.add("this is a word sequence");
+		tempList.add("DonutTests.zip");
+		
+		display.displayText("The longest string in the tempList is: " + maxLength(tempList) + " long");
+		display.displayText("It is: " + getLongestString(tempList));
 		
 		donutList.add(temp); 
 		fillTheList();
@@ -93,6 +99,36 @@ public class ListController
 		display.displayText("Twisty Donut was added to the menu. Now it is this big: " + donutList.size());
 		
 		donutList.add(4, removed);
+	}
+	
+	public int maxLength(ArrayList<String> myList)
+	{
+		int max = 0;
+		
+		for (int index = 0; index < myList.size(); index+= 1)
+		{
+			if (max < myList.get(index).length())
+			{
+				max = myList.get(index).length();
+			}
+		}
+		return max;
+	}
+	
+	public String getLongestString(ArrayList<String> myList)
+	{
+		String longest = "";
+		int max = 0;
+		
+		for (int index = 0; index < myList.size(); index += 1)
+		{
+			if (myList.get(index).length() > max)
+			{
+				max = myList.get(index).length();
+				longest = myList.get(index);
+			}
+		}
+		return longest;
 	}
 	
 	private void backwardsLoopDemo()
